@@ -1,0 +1,45 @@
+﻿@model IEnumerable<mvccrud.Models.mvcsatilanmodel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "EY", null, new { @class = "btn btn-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SatilanUrunAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirimFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maliyet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SatilanUrunAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maliyet)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "EY", new {  id=item.SatilanNo }, new { @class = "btn btn-success" }) |
+            
+            @Html.ActionLink("Sil", "Sil", new {  id=item.SatilanNo }, new { @class = "btn btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

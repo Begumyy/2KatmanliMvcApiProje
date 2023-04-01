@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="apimvccrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Calisanlar">
+    <Key>
+      <PropertyRef Name="CalisanID" />
+    </Key>
+    <Property Name="CalisanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="Pozisyon" Type="varchar" MaxLength="50" />
+    <Property Name="Yas" Type="int" />
+    <Property Name="Maas" Type="int" />
+  </EntityType>
+  <EntityType Name="Firmalar">
+    <Key>
+      <PropertyRef Name="FirmaNo" />
+    </Key>
+    <Property Name="FirmaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirmaAd" Type="varchar" MaxLength="50" />
+    <Property Name="Bakiye" Type="money" />
+    <Property Name="Sektor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Imalatlar">
+    <Key>
+      <PropertyRef Name="ImalatNo" />
+    </Key>
+    <Property Name="ImalatNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnaMadde" Type="varchar" MaxLength="50" />
+    <Property Name="YardimciMadde" Type="varchar" MaxLength="50" />
+    <Property Name="IsciMaliyeti" Type="money" />
+    <Property Name="DigerMaddeler" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Satilanlar">
+    <Key>
+      <PropertyRef Name="SatilanNo" />
+    </Key>
+    <Property Name="SatilanNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SatilanUrunAdi" Type="varchar" MaxLength="50" />
+    <Property Name="BirimFiyat" Type="int" />
+    <Property Name="Maliyet" Type="int" />
+  </EntityType>
+  <EntityType Name="Subeler">
+    <Key>
+      <PropertyRef Name="SubeNo" />
+    </Key>
+    <Property Name="SubeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubeAdi" Type="varchar" MaxLength="50" />
+    <Property Name="SubeAdres" Type="varchar" MaxLength="50" />
+    <Property Name="SubeTelefon" Type="varchar" MaxLength="50" />
+    <Property Name="Yetkili" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunNo" />
+    </Key>
+    <Property Name="UrunNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunAdi" Type="varchar" MaxLength="50" />
+    <Property Name="Marka" Type="varchar" MaxLength="50" />
+    <Property Name="Fiyat" Type="money" />
+  </EntityType>
+  <EntityContainer Name="apimvccrudModelStoreContainer">
+    <EntitySet Name="Calisanlar" EntityType="Self.Calisanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Firmalar" EntityType="Self.Firmalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Imalatlar" EntityType="Self.Imalatlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Satilanlar" EntityType="Self.Satilanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subeler" EntityType="Self.Subeler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

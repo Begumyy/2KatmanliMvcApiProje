@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="apimvccrudModelStoreContainer" CdmEntityContainer="apimvccrudEntities">
+    <EntitySetMapping Name="Calisanlars">
+      <EntityTypeMapping TypeName="apimvccrudModel.Calisanlar">
+        <MappingFragment StoreEntitySet="Calisanlar">
+          <ScalarProperty Name="CalisanID" ColumnName="CalisanID" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="Pozisyon" ColumnName="Pozisyon" />
+          <ScalarProperty Name="Yas" ColumnName="Yas" />
+          <ScalarProperty Name="Maas" ColumnName="Maas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subelers">
+      <EntityTypeMapping TypeName="apimvccrudModel.Subeler">
+        <MappingFragment StoreEntitySet="Subeler">
+          <ScalarProperty Name="SubeNo" ColumnName="SubeNo" />
+          <ScalarProperty Name="SubeAdi" ColumnName="SubeAdi" />
+          <ScalarProperty Name="SubeAdres" ColumnName="SubeAdres" />
+          <ScalarProperty Name="SubeTelefon" ColumnName="SubeTelefon" />
+          <ScalarProperty Name="Yetkili" ColumnName="Yetkili" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunlers">
+      <EntityTypeMapping TypeName="apimvccrudModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="UrunNo" ColumnName="UrunNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Firmalars">
+      <EntityTypeMapping TypeName="apimvccrudModel.Firmalar">
+        <MappingFragment StoreEntitySet="Firmalar">
+          <ScalarProperty Name="Sektor" ColumnName="Sektor" />
+          <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+          <ScalarProperty Name="FirmaAd" ColumnName="FirmaAd" />
+          <ScalarProperty Name="FirmaNo" ColumnName="FirmaNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imalatlars">
+      <EntityTypeMapping TypeName="apimvccrudModel.Imalatlar">
+        <MappingFragment StoreEntitySet="Imalatlar">
+          <ScalarProperty Name="DigerMaddeler" ColumnName="DigerMaddeler" />
+          <ScalarProperty Name="IsciMaliyeti" ColumnName="IsciMaliyeti" />
+          <ScalarProperty Name="YardimciMadde" ColumnName="YardimciMadde" />
+          <ScalarProperty Name="AnaMadde" ColumnName="AnaMadde" />
+          <ScalarProperty Name="ImalatNo" ColumnName="ImalatNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satilanlars">
+      <EntityTypeMapping TypeName="apimvccrudModel.Satilanlar">
+        <MappingFragment StoreEntitySet="Satilanlar">
+          <ScalarProperty Name="Maliyet" ColumnName="Maliyet" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="SatilanUrunAdi" ColumnName="SatilanUrunAdi" />
+          <ScalarProperty Name="SatilanNo" ColumnName="SatilanNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

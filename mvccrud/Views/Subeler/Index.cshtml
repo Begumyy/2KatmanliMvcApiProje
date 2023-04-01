@@ -1,0 +1,51 @@
+﻿@model IEnumerable<mvccrud.Models.mvcsubemodel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "EY", null, new { @class = "btn btn-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubeAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubeAdres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubeTelefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yetkili)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubeAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubeAdres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubeTelefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yetkili)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "EY", new { id = item.SubeNo }, new { @class = "btn btn-success" }) |
+
+            @Html.ActionLink("Sil", "Sil", new { id = item.SubeNo }, new { @class = "btn btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

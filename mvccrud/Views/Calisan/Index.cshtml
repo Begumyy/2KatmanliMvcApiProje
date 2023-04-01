@@ -1,0 +1,51 @@
+﻿@model IEnumerable<mvccrud.Models.mvccalisanmodel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "EY", null, new {@class="btn btn-danger"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pozisyon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdSoyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pozisyon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maas)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "EY", new { id = item.CalisanID }, new { @class = "btn btn-success" }) |
+
+            @Html.ActionLink("Sil", "Sil", new { id = item.CalisanID }, new { @class = "btn btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

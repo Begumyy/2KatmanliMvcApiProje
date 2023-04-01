@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="apimvccrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Calisanlar">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Pozisyon" Type="varchar" MaxLength="50" />
+          <Property Name="Yas" Type="int" />
+          <Property Name="Maas" Type="int" />
+        </EntityType>
+        <EntityType Name="Firmalar">
+          <Key>
+            <PropertyRef Name="FirmaNo" />
+          </Key>
+          <Property Name="FirmaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirmaAd" Type="varchar" MaxLength="50" />
+          <Property Name="Bakiye" Type="money" />
+          <Property Name="Sektor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Imalatlar">
+          <Key>
+            <PropertyRef Name="ImalatNo" />
+          </Key>
+          <Property Name="ImalatNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnaMadde" Type="varchar" MaxLength="50" />
+          <Property Name="YardimciMadde" Type="varchar" MaxLength="50" />
+          <Property Name="IsciMaliyeti" Type="money" />
+          <Property Name="DigerMaddeler" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Satilanlar">
+          <Key>
+            <PropertyRef Name="SatilanNo" />
+          </Key>
+          <Property Name="SatilanNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SatilanUrunAdi" Type="varchar" MaxLength="50" />
+          <Property Name="BirimFiyat" Type="int" />
+          <Property Name="Maliyet" Type="int" />
+        </EntityType>
+        <EntityType Name="Subeler">
+          <Key>
+            <PropertyRef Name="SubeNo" />
+          </Key>
+          <Property Name="SubeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubeAdi" Type="varchar" MaxLength="50" />
+          <Property Name="SubeAdres" Type="varchar" MaxLength="50" />
+          <Property Name="SubeTelefon" Type="varchar" MaxLength="50" />
+          <Property Name="Yetkili" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="UrunNo" />
+          </Key>
+          <Property Name="UrunNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="varchar" MaxLength="50" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" />
+          <Property Name="Fiyat" Type="money" />
+        </EntityType>
+        <EntityContainer Name="apimvccrudModelStoreContainer">
+          <EntitySet Name="Calisanlar" EntityType="Self.Calisanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Firmalar" EntityType="Self.Firmalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imalatlar" EntityType="Self.Imalatlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Satilanlar" EntityType="Self.Satilanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subeler" EntityType="Self.Subeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="apimvccrudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Calisanlar">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pozisyon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Yas" Type="Int32" />
+          <Property Name="Maas" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Subeler">
+          <Key>
+            <PropertyRef Name="SubeNo" />
+          </Key>
+          <Property Name="SubeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubeAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubeAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubeTelefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Yetkili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="apimvccrudEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Calisanlars" EntityType="Self.Calisanlar" />
+          <EntitySet Name="Subelers" EntityType="Self.Subeler" />
+          <EntitySet Name="Urunlers" EntityType="apimvccrudModel.Urunler" />
+          <EntitySet Name="Firmalars" EntityType="apimvccrudModel.Firmalar" />
+          <EntitySet Name="Imalatlars" EntityType="apimvccrudModel.Imalatlar" />
+          <EntitySet Name="Satilanlars" EntityType="apimvccrudModel.Satilanlar" />
+        </EntityContainer>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="UrunNo" />
+          </Key>
+          <Property Name="UrunNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fiyat" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Firmalar">
+          <Key>
+            <PropertyRef Name="FirmaNo" />
+          </Key>
+          <Property Name="FirmaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirmaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bakiye" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sektor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Imalatlar">
+          <Key>
+            <PropertyRef Name="ImalatNo" />
+          </Key>
+          <Property Name="ImalatNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnaMadde" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YardimciMadde" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsciMaliyeti" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DigerMaddeler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Satilanlar">
+          <Key>
+            <PropertyRef Name="SatilanNo" />
+          </Key>
+          <Property Name="SatilanNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SatilanUrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BirimFiyat" Type="Int32" />
+          <Property Name="Maliyet" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="apimvccrudModelStoreContainer" CdmEntityContainer="apimvccrudEntities">
+          <EntitySetMapping Name="Calisanlars">
+            <EntityTypeMapping TypeName="apimvccrudModel.Calisanlar">
+              <MappingFragment StoreEntitySet="Calisanlar">
+                <ScalarProperty Name="CalisanID" ColumnName="CalisanID" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Pozisyon" ColumnName="Pozisyon" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+                <ScalarProperty Name="Maas" ColumnName="Maas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subelers">
+            <EntityTypeMapping TypeName="apimvccrudModel.Subeler">
+              <MappingFragment StoreEntitySet="Subeler">
+                <ScalarProperty Name="SubeNo" ColumnName="SubeNo" />
+                <ScalarProperty Name="SubeAdi" ColumnName="SubeAdi" />
+                <ScalarProperty Name="SubeAdres" ColumnName="SubeAdres" />
+                <ScalarProperty Name="SubeTelefon" ColumnName="SubeTelefon" />
+                <ScalarProperty Name="Yetkili" ColumnName="Yetkili" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunlers">
+            <EntityTypeMapping TypeName="apimvccrudModel.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunNo" ColumnName="UrunNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firmalars">
+            <EntityTypeMapping TypeName="apimvccrudModel.Firmalar">
+              <MappingFragment StoreEntitySet="Firmalar">
+                <ScalarProperty Name="Sektor" ColumnName="Sektor" />
+                <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+                <ScalarProperty Name="FirmaAd" ColumnName="FirmaAd" />
+                <ScalarProperty Name="FirmaNo" ColumnName="FirmaNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imalatlars">
+            <EntityTypeMapping TypeName="apimvccrudModel.Imalatlar">
+              <MappingFragment StoreEntitySet="Imalatlar">
+                <ScalarProperty Name="DigerMaddeler" ColumnName="DigerMaddeler" />
+                <ScalarProperty Name="IsciMaliyeti" ColumnName="IsciMaliyeti" />
+                <ScalarProperty Name="YardimciMadde" ColumnName="YardimciMadde" />
+                <ScalarProperty Name="AnaMadde" ColumnName="AnaMadde" />
+                <ScalarProperty Name="ImalatNo" ColumnName="ImalatNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Satilanlars">
+            <EntityTypeMapping TypeName="apimvccrudModel.Satilanlar">
+              <MappingFragment StoreEntitySet="Satilanlar">
+                <ScalarProperty Name="Maliyet" ColumnName="Maliyet" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="SatilanUrunAdi" ColumnName="SatilanUrunAdi" />
+                <ScalarProperty Name="SatilanNo" ColumnName="SatilanNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

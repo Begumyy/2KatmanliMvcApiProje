@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="apimvccrudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Calisanlar">
+    <Key>
+      <PropertyRef Name="CalisanID" />
+    </Key>
+    <Property Name="CalisanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pozisyon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Yas" Type="Int32" />
+    <Property Name="Maas" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Subeler">
+    <Key>
+      <PropertyRef Name="SubeNo" />
+    </Key>
+    <Property Name="SubeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubeAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubeAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubeTelefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Yetkili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="apimvccrudEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Calisanlars" EntityType="Self.Calisanlar" />
+    <EntitySet Name="Subelers" EntityType="Self.Subeler" />
+    <EntitySet Name="Urunlers" EntityType="apimvccrudModel.Urunler" />
+    <EntitySet Name="Firmalars" EntityType="apimvccrudModel.Firmalar" />
+    <EntitySet Name="Imalatlars" EntityType="apimvccrudModel.Imalatlar" />
+    <EntitySet Name="Satilanlars" EntityType="apimvccrudModel.Satilanlar" />
+  </EntityContainer>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunNo" />
+    </Key>
+    <Property Name="UrunNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fiyat" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Firmalar">
+    <Key>
+      <PropertyRef Name="FirmaNo" />
+    </Key>
+    <Property Name="FirmaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirmaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bakiye" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Sektor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Imalatlar">
+    <Key>
+      <PropertyRef Name="ImalatNo" />
+    </Key>
+    <Property Name="ImalatNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AnaMadde" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="YardimciMadde" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsciMaliyeti" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DigerMaddeler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Satilanlar">
+    <Key>
+      <PropertyRef Name="SatilanNo" />
+    </Key>
+    <Property Name="SatilanNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SatilanUrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BirimFiyat" Type="Int32" />
+    <Property Name="Maliyet" Type="Int32" />
+  </EntityType>
+</Schema>
